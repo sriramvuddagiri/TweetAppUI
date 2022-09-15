@@ -37,6 +37,7 @@ async function insertComment(postId, commentContent) {
 }
 async function updateLove(postId, currentUserId) {
     console.log(currentUserId);
+    
     const response = await axios({
         method: "post",
         url: "/api2/apps/v1.0/tweets/"+currentUserId+"/like/"+postId,

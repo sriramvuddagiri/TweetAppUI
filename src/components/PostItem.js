@@ -53,7 +53,9 @@ function PostItem(props) {
     }
   }
   }
+  // function handleEditTweet(e){
 
+  // }
 
 
   function handleDeleteClick(e){
@@ -155,6 +157,17 @@ function PostItem(props) {
               {props.commentList !==null && props.commentList !=="" ? props.commentList.length: null}
             </span>
           </div>
+          
+          {/* Sub-function love button */}
+          {/* <div className="mx-3">
+            <span
+              className={`${styles.EditButton} mx-1 fs-4`}
+              onClick={handleLoveClick}
+            >
+              
+            </span>
+          </div> */}
+
 
           {/* Sub-function share button */}
           {props.handles!=="user"?(
