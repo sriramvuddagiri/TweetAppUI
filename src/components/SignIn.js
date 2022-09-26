@@ -27,13 +27,19 @@ function SignIn() {
 
   async function postSignInInfo(inputData) {
     try{
+    //var con= process.env.NODE_ENV==="production"?"api1":"http://localhost:3000/api1"
     const response = await axios({
-      method: "post",
+      method: "POST",
       url: "api1/apps/v1.0/tweets/login",
       data: {
         username: inputData.username,
         password: inputData.password,
       },
+      headers: {
+        "Access-Control-Allow-Origin": '*',
+       "Access-Control-Allow-Headers": '*',
+       "Access-Control-Allow-Methods":'*',
+      }
     });
     
     if (response.data !== null && response.status !== 200) {
