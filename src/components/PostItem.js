@@ -12,6 +12,7 @@ import {
   RiChat4Line,
   RiSendPlane2Fill,
   RiDeleteBin5Line,
+  RiEditBoxLine,
 } from "react-icons/ri";
 import { Button, Form, Row } from "react-bootstrap";
 
@@ -53,9 +54,9 @@ function PostItem(props) {
     }
   }
   }
-  // function handleEditTweet(e){
+  function handleEditTweet(e){
 
-  // }
+  }
 
 
   function handleDeleteClick(e){
@@ -183,6 +184,15 @@ function PostItem(props) {
             </span>
           </div>):(
             <div className="d-flex justify-content-center align-items-center">
+              <div className="mx-3">
+            <span
+              className={`${styles.EditButton} mx-1 fs-4`}
+              onClick={handleEditTweet}
+            >
+              <RiEditBoxLine className="text" />
+            </span>
+            
+          </div>
             <div className="mx-3">
             <span
               className={`${styles.deleteButton} mx-1 fs-4`}
