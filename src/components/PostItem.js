@@ -25,6 +25,7 @@ import {
 } from "../feature/Post/PostSlice";
 
 function PostItem(props) {
+  const regex = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/g;
   const dispatch = useDispatch();
 
   const [loveStatus, setLoveStatus] = useState(props.loveList!==null?props.loveList.includes(localStorage.getItem("userName")):false);
@@ -53,11 +54,7 @@ function PostItem(props) {
       dispatch(addLove({ postId: postId, userId: currentUserId }));
     }
   }
-  }
-  function handleEditTweet(e){
-
-  }
-
+}
 
   function handleDeleteClick(e){
     e.preventDefault();
@@ -187,7 +184,6 @@ function PostItem(props) {
               <div className="mx-3">
             <span
               className={`${styles.EditButton} mx-1 fs-4`}
-              onClick={handleEditTweet}
             >
               <RiEditBoxLine className="text" />
             </span>
@@ -250,7 +246,7 @@ function PostItem(props) {
                     <span>{commentItem.substring(0,commentItem.indexOf('-'))}</span>
                   </div>
                 </div>
-                <div>{commentItem.substring(commentItem.indexOf('-')+1,)}</div>
+                <div>{(commentItem.substring(commentItem.indexOf('-')+1).replace(regex," "))}</div>
               </div>
             ))):(<span></span>)}
           </div>
